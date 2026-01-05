@@ -37,7 +37,8 @@ public class RentalController {
     public List<Car> getCars() {
         return cars;
     }
-
+    
+    // pour appeler la fonction : curl -s http://localhost:8080/customer/Jean%20Dupont
     @GetMapping("/customer/{name}")
     public String bonjour(@PathVariable String name) {
         RestTemplate restTemplate = new RestTemplate();
