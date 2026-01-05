@@ -14,6 +14,7 @@ services:
     networks:
       - microservices-network
     restart: unless-stopped
+    image: bipief/customer-service:latest
 
   rental-service:
     build:
@@ -31,6 +32,7 @@ services:
     depends_on:
       - customer-service
     restart: unless-stopped
+    image: bipief/rental-service-2:latest
 
   database:
     # Official Postgres image

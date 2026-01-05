@@ -48,10 +48,22 @@ Pour tester si le port à été mappé correctement, on peut faire :
 ![test connection correct mapping](images/image6.png)
 
 /!\ important /!\
-The lines 
+Les lignes
 ```bash
     volumes:
       # we SHOULD define an entrypoint script here to initialize the database when we create the volume
       - postgres_data:/var/lib/postgresql
 ```
-create a 
+font référence à la section du dockerfile suivante :
+```bash
+volumes:
+  postgres_data:
+    driver: local
+```
+Cela indique que les datas de la database sont stocké localement dans les fichiers de docker (chemin par défault)
+
+## Docker Image
+
+J'ai créé une image docker pour les 2 images des microservices de mon docker-compose :
+https://hub.docker.com/r/bipief/docker-compose-rental-service
+
