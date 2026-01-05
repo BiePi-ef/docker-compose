@@ -46,3 +46,12 @@ Pour tester si le port à été mappé correctement, on peut faire :
 
 > pg_isready -h localhost -p 5432
 ![test connection correct mapping](images/image6.png)
+
+/!\ important /!\
+The lines 
+```bash
+    volumes:
+      # we SHOULD define an entrypoint script here to initialize the database when we create the volume
+      - postgres_data:/var/lib/postgresql
+```
+create a 

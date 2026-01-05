@@ -41,7 +41,11 @@ services:
         - .env
     volumes:
       # we SHOULD define an entrypoint script here to initialize the database when we create the volume
-      - ${PWD}/db-data/:/var/lib/postgresql
+      - postgres_data:/var/lib/postgresql
+
+volumes:
+  postgres_data:
+    driver: local
 
 networks:
   microservices-network:
