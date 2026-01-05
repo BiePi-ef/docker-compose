@@ -32,6 +32,17 @@ services:
       - customer-service
     restart: unless-stopped
 
+  database:
+    # Official Postgres image
+    image: 'postgres:latest'
+    ports:
+      - 5432:5432
+    env_file: # permet de définir l'endroit ou sont définies les variables d'initialisation de la database
+        - .env
+    volumes:
+      # we SHOULD define an entrypoint script here to initialize the database when we create the volume
+      - ${PWD}/db-data/:/var/lib/postgresql
+
 networks:
   microservices-network:
     driver: bridge

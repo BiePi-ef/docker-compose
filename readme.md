@@ -29,4 +29,20 @@ On peut tester la methode "bonjour" de notre microserice 'RentaService' pour vé
 ![test de l'url ](images/image4.png)
 
 ## Bonus : BDD avec volumes
-// tdo
+
+Je ne connais pas bien java, donc je n'ai pas créé de connection entre mes microservices et ma database.
+Cependant j'ai quand meme créé une database PostgreSQL dans mon docker compose, et un volume associé.
+
+Les informations d'environement de la database sont définies dans le .env
+
+### Teste de la connection avec la database :
+On peut tester la connection avec la, database avec la commande suivant : pg_isready.
+On peut la run dans le container :
+
+> docker exec ef1ca81e243d66598c50ebd0887022528a076281b316f3e509d5d8e61bbbbcff pg_isready
+![accept connections](images/image5.png)
+
+Pour tester si le port à été mappé correctement, on peut faire :
+
+> pg_isready -h localhost -p 5432
+![test connection correct mapping](images/image6.png)
